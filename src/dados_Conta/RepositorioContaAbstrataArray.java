@@ -2,7 +2,7 @@ package dados_Conta;
 
 import model_Conta.ContaAbstrata;
 
-public class RepositorioContaAbstrataArray {
+public class RepositorioContaAbstrataArray implements iRepConta<ContaAbstrata> {
     private ContaAbstrata[] contas;
     private int indice;
     private final static int tamCache = 100;
@@ -10,7 +10,7 @@ public class RepositorioContaAbstrataArray {
         indice = 0;
         contas = new ContaAbstrata[tamCache];
     }
-    public void inserir(ContaAbstrata c){
+    public void adicionar(ContaAbstrata c){
         contas[indice] = c;
         indice++;
     }
@@ -34,7 +34,7 @@ public class RepositorioContaAbstrataArray {
             System.out.println("Conta nao encontrada");
         }
     }    
-    public ContaAbstrata procurar(String num){
+    public ContaAbstrata buscar(String num){
         ContaAbstrata c = null;
         if(existe(num)){
             int i = this.procurarIndice(num);

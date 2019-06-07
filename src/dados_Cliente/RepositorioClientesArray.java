@@ -2,7 +2,7 @@ package dados_Cliente;
 
 import model_Cliente.Cliente;
 
-public class RepositorioClientesArray {
+public class RepositorioClientesArray implements iRepClientes<Cliente> {
     private Cliente[] clientes;
     private int indice;
     private final static int tamCache = 100;
