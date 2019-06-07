@@ -36,6 +36,7 @@ public class RepositorioClientesArray {
     }   
     public Cliente buscar(String cpf){
         Cliente c = null;
+        //avatar troll
         if(existe(cpf)){
             int i = this.procurarIndice(cpf);
             c = clientes[i];
