@@ -22,19 +22,37 @@ public class Fachada {
 		RepositorioClientesArray repClientes = new RepositorioClientesArray();
 		cliente = new ControlerClientes(repClientes);
 	}
-	public void atualizar(Cliente c){
+	public void atualizarCliente(Cliente c){
 		cliente.atualizar(c);
 	}
-	public void adicionar (Cliente c){
+	public void adicionarCliente (Cliente c){
 		cliente.adicionar(c);
 	}
-	public void remover(Cliente c){
+	public void removerCliente(Cliente c){
 		cliente.remover(c);
 	}
-	public void atualizar(ContaAbstrata c){
+	public void atualizarConta(ContaAbstrata c){
 		contas.atualizar(c);
 	}
-	public void adicionar(ContaAbstrata c){
-		
+	public void adicionarConta(ContaAbstrata c){
+		Cliente cli = c.getCliente();
+		if(cli != null){
+			cliente.buscar(cli.getCpf());
+			contas.adicionar(c);
+		}else{
+			//erro
+		}
+	}
+	public void removerConta(ContaAbstrata c){
+		contas.remover(c);
+	}
+	public void creditar(ContaAbstrata c,double v){
+		contas.creditar(c, v);
+	}
+	public void debitar (ContaAbstrata c,double v){
+		contas.debitar(c, v);
+	}
+	public void transferir(ContaAbstrata origem,ContaAbstrata destino,double val){
+		contas.transferir(origem, destino, val);
 	}
 }
