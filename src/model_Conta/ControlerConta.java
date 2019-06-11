@@ -4,18 +4,10 @@ import dados_Conta.iRepConta;
 
 public class ControlerConta extends Controler<ContaAbstrata>{
 	private iRepConta<ContaAbstrata> repositorio;
-    public void adicionar(ContaAbstrata c){
-    	repositorio.adicionar(c);
-    }
-    public void remover(ContaAbstrata c){   
-        repositorio.remover(c);
-    }
-    public void atualizar(ContaAbstrata c){
-    	repositorio.atualizar(c);
-    }
-    public ContaAbstrata buscar(String c){
-    	return repositorio.buscar(c);
-    }
+	public ControlerConta(iRepConta rep){
+		super(rep);
+		this.repositorio = rep;
+	}	
     public void creditar(ContaAbstrata c, double valor){
     	c.creditar(valor);
     }
