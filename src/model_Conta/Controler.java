@@ -4,7 +4,8 @@ import dados_Conta.iRep;
 
 public abstract class Controler<E> {
 	private iRep<E> repositorio;
-	public Controler() {
+	protected Controler(iRep<E> e) {
+		repositorio = e;
 	}
 	public void adicionar(E e){
 		repositorio.adicionar(e);

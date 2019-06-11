@@ -20,7 +20,7 @@ public class Fachada {
 		RepositorioContaAbstrataArray rep = new RepositorioContaAbstrataArray();
 		contas = new ControlerConta(rep);
 		RepositorioClientesArray repClientes = new RepositorioClientesArray();
-		cliente = new ControlerClientes(repClientes);
+		cliente = new ControlerCliente(repClientes);
 	}
 	public void atualizarCliente(Cliente c){
 		cliente.atualizar(c);
