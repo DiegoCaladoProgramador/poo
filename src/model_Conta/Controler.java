@@ -1,10 +1,21 @@
 package model_Conta;
 
+import dados_Conta.iRep;
+
 public abstract class Controler<E> {
+	private iRep<E> repositorio;
 	public Controler() {
 	}
-	public abstract void adicionar(E e);
-	public abstract void remover(E e);
-	public abstract void atualizar(E e);
-	public abstract E buscar(String e);
+	public void adicionar(E e){
+		repositorio.adicionar(e);
+	}
+	public void remover(E e){
+		repositorio.remover(e);
+	}
+	public void atualizar(E e){
+		repositorio.atualizar(e);
+	}
+	public E buscar(String e){
+		return repositorio.buscar(e);
+	}
 }
