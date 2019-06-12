@@ -1,5 +1,6 @@
 package dados_Cliente;
 
+import Criador.CriadorExceptions;
 import model_Cliente.Cliente;
 
 public class RepositorioClientesArray implements iRepClientes<Cliente> {
@@ -11,8 +12,12 @@ public class RepositorioClientesArray implements iRepClientes<Cliente> {
         clientes = new Cliente[tamCache];
     }    
     public void adicionar(Cliente c){
-        clientes[indice] = c;
-        indice++;
+    	if(this.buscar(c.getCpf())==null){
+    		clientes[indice] = c;
+    		indice++;
+    	}else{
+    		//erro
+    	}
     }    
     public void remover(Cliente c){
         if(existe(c.getCpf())){
@@ -22,7 +27,7 @@ public class RepositorioClientesArray implements iRepClientes<Cliente> {
             indice = indice-1;
         }
         else{
-            System.out.println("Cliente nao encontrado");
+        	//erro
         }
     }   
     public void atualizar(Cliente c){

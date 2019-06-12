@@ -11,8 +11,12 @@ public class RepositorioContaAbstrataArray implements iRepConta<ContaAbstrata> {
         contas = new ContaAbstrata[tamCache];
     }
     public void adicionar(ContaAbstrata c){
-        contas[indice] = c;
-        indice++;
+    	if(this.buscar(c.getNumero())==null){
+    		contas[indice] = c;
+            indice++;
+    	}else{
+    		//erros
+    	}
     }
     public void remover(ContaAbstrata c){
         if(existe(c.getNumero())){

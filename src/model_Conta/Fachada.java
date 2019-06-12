@@ -1,8 +1,13 @@
 package model_Conta;
 import model_Cliente.Cliente;
 import model_Cliente.ControlerCliente;
+import Criador.CriadorCliente;
+import Criador.CriadorConta;
 import dados_Cliente.RepositorioClientesArray;
-import dados_Conta.RepositorioContaAbstrataArray; 
+import dados_Cliente.iRepClientes;
+import dados_Conta.RepositorioContaAbstrataArray;
+import exceptions.MyException;
+import exceptions.ParametrosArquivoException; 
 public class Fachada {
 	private static Fachada instancia;
 	private ControlerConta contas;
@@ -17,10 +22,8 @@ public class Fachada {
 		initCadastros();
 	}
 	private void initCadastros(){
-		RepositorioContaAbstrataArray rep = new RepositorioContaAbstrataArray();
-		contas = new ControlerConta(rep);
-		RepositorioClientesArray repClientes = new RepositorioClientesArray();
-		cliente = new ControlerCliente(repClientes);
+		ControlerCliente controleCli = new ControlerCliente(CriadorCliente.criador());
+		ControlerConta controleCon = new ControlerConta(CriadorConta.criador());
 	}
 	public void atualizarCliente(Cliente c){
 		cliente.atualizar(c);

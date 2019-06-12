@@ -4,7 +4,7 @@ import java.util.TreeSet;
 
 import model_Cliente.Cliente;
 
-public class RepositorioTreeSetCliente {
+public class RepositorioTreeSetCliente implements iRepClientes<Cliente>{
 	private TreeSet<Cliente> ts;
 	
 	public RepositorioTreeSetCliente(){ 
